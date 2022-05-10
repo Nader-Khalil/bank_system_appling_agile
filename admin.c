@@ -7,16 +7,15 @@
 
 typedef struct 
 {
-    char *name;
-    int id;
-    int account_no;
-    int password;
+    char *username;
+    char* password;
 
 } Admin;
 
 void admin_init(Admin *person);
-void admin_Login(Admin* person);
 void admin_CreateAccount();
+Account* admin_OpenExstingAccount(AccountLinkedList* account);
+//void admin_Login(Admin* person);
 void admin_Logout();
 void admin_EditProfile();
 void admin_MakeTranaction();
@@ -25,12 +24,11 @@ void admin_GetCash();
 void admin_DepositInAccount();
 void admin_ReturnToMainMenu(); 
 
-void admin_init(Admin *person)
+void admin_init()
 {
-    person->name = "nader";
-    person->id = 1;
-    person->account_no = 12133254;
-    person->password = 12345678;
+    Admin person;
+    person->username = "admin";
+    person->password = "admin";
 }
 
 void admin_Login(Admin* person)
@@ -46,13 +44,20 @@ void admin_Login(Admin* person)
     if (username == person->name && password == person->password){ printf("WElcome to Admin Window \n");}
     else{printf(" Invalid username or password");}
 }
+
+
 void admin_CreateAccount(p) 
 {
     //Client person = client_init(p);
      Account account = account_init();
-
-
 }
+
+
+Account* admin_OpenExstingAccount(AccountLinkedList* account){}
+
+
+
+
 void admin_Logout() {}
 void admin_EditProfile() {}
 void admin_MakeTranaction() {}
