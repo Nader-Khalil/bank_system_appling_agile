@@ -43,27 +43,23 @@ Account account_init()
 }
 
 char* generate_Password(int password_length)
-{
+{   int i;
     char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/";
     srand(time(NULL));
     char* str = (char*) malloc(sizeof(char) * password_length);
-    for(int i = 0; i < password_length; i++) 
-    {
-        str[i] = list[rand() % (sizeof list - 1)];
-        
-    }
+    for(i = 0; i < password_length; i++) { str[i] = list[rand() % (sizeof list - 1)];}
+    str[i] = '\0';
     return str;
 }
+
 
 char* generate_AccountID(int id_length)
 {
     char list[] = "1234567890";
+    int i;
     srand(time(NULL));
-    char* str = (char*) malloc(sizeof(char) * id_length);;
-    for(int i = 0; i < id_length; i++) 
-    {
-        str[i] = list[rand() % (sizeof list - 1)];
-        
-    }
+    char* str = (char*) malloc(sizeof(char) * id_length);
+    for(i = 0; i < id_length; i++) {str[i] = list[rand() % (sizeof list - 1)];}
+    str[i] = '\0';
     return str;
 }
