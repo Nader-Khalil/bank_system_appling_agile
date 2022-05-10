@@ -18,7 +18,7 @@ typedef struct account
     struct account* Next;
 } Account;
 
-
+//comment
 typedef struct 
 {
    Account* head;
