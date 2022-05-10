@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "account.c"
+#include "client.c"
 
-typedef struct client
-{
-    char *name;
-    int id;
-    int account_no;
-    int password;
 
-} Client;
-
-typedef struct admin
+typedef struct 
 {
     char *name;
     int id;
@@ -29,7 +23,7 @@ void admin_MakeTranaction();
 void admin_ChangeAccountStatus();
 void admin_GetCash();
 void admin_DepositInAccount();
-void admin_ReturnToMainMenu();
+void admin_ReturnToMainMenu(); 
 
 void admin_init(Admin *person)
 {
@@ -52,10 +46,17 @@ void admin_Login(Admin* person)
     if (username == person->name && password == person->password){ printf("WElcome to Admin Window \n");}
     else{printf(" Invalid username or password");}
 }
-void admin_CreateAccount() {}
+void admin_CreateAccount(p) 
+{
+    //Client person = client_init(p);
+     Account account = account_init();
+
+
+}
 void admin_Logout() {}
 void admin_EditProfile() {}
 void admin_MakeTranaction() {}
+
 void admin_ChangeAccountStatus() {}
 void admin_GetCash() {}
 void admin_DepositInAccount() {}
