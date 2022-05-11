@@ -26,9 +26,11 @@ int main()
   printf("\n %s",account->accountID);
   printf("\n %s",account->password);
   
+
+
   Account accountPtr2;
   Account* account2 = &accountPtr2 ;
-  account_init(account2);
+  //account_init(account2);
   //account2->accountID= "444";
   //account2->password ="adm";
   account2->fullName ="nader test";

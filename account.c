@@ -12,8 +12,6 @@ extern void account_init(Account* account)
   char* id = generate_AccountID(10);
   account->password =  pass;
   account->accountID = id;
-  pass = NULL;
-  id= NULL;
   //free(pass);
   //free(id);
 }
@@ -62,12 +60,11 @@ extern char* generate_Password(int password_length)
 {   int i;
     char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/";
     srand(time(NULL));
-    char* str = (char*) malloc(sizeof(char) * password_length);
+    char* str [password_length];
     for(i = 0; i < password_length; i++) { str[i] = list[rand() % (sizeof list - 1)];}
     str[i] = '\0';
     return str;
 }
-
 
 extern char* generate_AccountID(int id_length)
 {

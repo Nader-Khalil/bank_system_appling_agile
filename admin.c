@@ -73,12 +73,11 @@ extern Account* admin_OpenExstingAccount(AccountLinkedList* account,  char* Targ
 
 
 
+extern void admin_ChangeAccountStatus() {}
+extern void admin_GetCash() {}
 
 //void admin_Logout() {}
 extern void admin_EditProfile() {}
 extern void admin_MakeTranaction() {}
-
-extern void admin_ChangeAccountStatus() {}
-extern void admin_GetCash() {}
 extern void admin_DepositInAccount() {}
 extern void admin_ReturnToMainMenu() {}
