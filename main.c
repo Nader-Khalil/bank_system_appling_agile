@@ -10,9 +10,12 @@
 int main()
 {
    
-  Account account = account_init() ;
-  //printf("%d", strlen( account.accountID));
-  
+  Account acc = account_init() ;
+
+  printf("here");
+  //acc->fullName ="user";
+  //acc->age =25;
+  //admin_CreateAccount(acc);
   
     return 0;
 }

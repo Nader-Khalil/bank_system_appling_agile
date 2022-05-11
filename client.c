@@ -29,7 +29,7 @@ void client_DepositInAccount();
 void client_ReturnToMainMenu();
 
 void client_init(Client *person)
-{
+{   /*
     person->name = " ";
     person->id = NULL;
     person->account_no = NULL;
@@ -40,7 +40,7 @@ void client_init(Client *person)
     person->guardian = NULL;
     person->guardianNationalID = NULL;
     person->accountStatus = " ";
-    person->balance = NULL;
+    person->balance = NULL; */
 }
 
 void client_Login() {}

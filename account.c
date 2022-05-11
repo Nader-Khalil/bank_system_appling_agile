@@ -19,7 +19,7 @@ typedef struct account
 } Account;
 
 //comment
-typedef struct 
+typedef struct accountLinkedList
 {
    Account* head;
    int size;
@@ -35,6 +35,7 @@ char* generate_Password(int password_length);
 
 Account account_init()
 {
+  //Account* newAccount = (Account*) malloc(sizeof(Account));
   Account newAccount;
   newAccount.fullName =" ";
   newAccount.password = generate_Password(8);
