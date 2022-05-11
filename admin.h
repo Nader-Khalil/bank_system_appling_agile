@@ -16,7 +16,7 @@ typedef struct admin
 
 extern void admin_init(Admin* admin);
 extern void admin_CreateAccount(Account* newAccount,AccountLinkedList* AccountsList ) ;
-extern Account* admin_OpenExstingAccount(AccountLinkedList* account);
+extern Account* admin_OpenExstingAccount(AccountLinkedList* account,  char* TargetID);
 //void admin_Logout();
 extern void admin_EditProfile();
 extern void admin_MakeTranaction();

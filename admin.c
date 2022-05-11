@@ -20,10 +20,10 @@ extern void admin_init(Admin* admin)
 
 extern void admin_CreateAccount(Account* newAccount,AccountLinkedList* AccountsList ) 
 {
-
-    Account* ptrAccount= (Account*) malloc(sizeof(Account));
     
-    //account_init(ptrAccount) ;
+    Account* ptrAccount= (Account*) malloc(sizeof(Account));
+    ptrAccount->accountID = newAccount->accountID;
+    ptrAccount->password = newAccount->password;
     ptrAccount->fullName = newAccount->fullName;
     ptrAccount->fullAddress = newAccount->fullAddress;
     ptrAccount->age = newAccount->age;
@@ -40,7 +40,36 @@ extern void admin_CreateAccount(Account* newAccount,AccountLinkedList* AccountsL
 }
 
 
-extern Account* admin_OpenExstingAccount(AccountLinkedList* account){}
+extern Account* admin_OpenExstingAccount(AccountLinkedList* account,  char* TargetID)
+{   int condition;
+    Account* pn = account->head;
+    char* CurrID = pn->accountID;
+
+    while(pn != NULL)
+    {   condition = strcmp(CurrID,TargetID);
+        if(condition ==0)
+        {
+            //CurrID =pn->data;
+            printf("current id %s \n ",CurrID);
+            return pn;
+            //break;
+        }
+        else
+        {
+        pn = pn->Next;
+        
+        }
+    }
+    if(condition != 0)
+    {   printf("dosen't exist id \n ");
+        return NULL;
+    }
+    else
+    {
+        return pn   ;
+    }
+    return NULL;
+}
 
 
 

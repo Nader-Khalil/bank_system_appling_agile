@@ -26,6 +26,7 @@ typedef struct accountLinkedList
 } AccountLinkedList;
 
 extern void account_init(Account* account);
+extern char* randomPasswordGeneration(int N);
 extern void accountLinkedList_init(AccountLinkedList* accountsList);
 extern char* generate_AccountID(int id_length);
 extern char* generate_Password(int password_length);
