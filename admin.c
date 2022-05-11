@@ -1,78 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "account.c"
+#include "account.h"
+//#include "account.c"
 //#include "client.c"
+#include "admin.h"
 
 
-typedef struct 
+
+
+
+extern void admin_init(Admin* admin)
 {
-    char *username;
-    char* password;
-
-} Admin;
-
-void admin_init();
-void admin_CreateAccount(Account *newAccount );
-Account* admin_OpenExstingAccount(AccountLinkedList* account);
-//void admin_Login(Admin* person);
-void admin_Logout();
-void admin_EditProfile();
-void admin_MakeTranaction();
-void admin_ChangeAccountStatus();
-void admin_GetCash();
-void admin_DepositInAccount();
-void admin_ReturnToMainMenu(); 
-
-void admin_init()
-{
-    Admin* person;
-    person->username = "admin";
-    person->password = "admin";
+    admin->username = "admin";
+    admin->password = 123;
 } 
 
-// void admin_Login(Admin* person)
-// {   char* username;
-//     int password;
-   
-//     printf("Please Enter Admin UserName : ");
-//     scanf("%c", &username);
-
-//     printf("Please Enter Admin Password : ");
-//     scanf("%d", &password);
-
-//     if (username == person->name && password == person->password){ printf("WElcome to Admin Window \n");}
-//     else{printf(" Invalid username or password");}
-// }
 
 
-void admin_CreateAccount(Account *newAccount ) 
+extern void admin_CreateAccount(Account* newAccount,AccountLinkedList* AccountsList ) 
 {
 
-   // AccountLinkedList* accList= (AccountLinkedList*) malloc(sizeof(AccountLinkedList));
-    Account account = account_init() ;
-    account.fullName = newAccount->fullName;
-    account.fullAddress = newAccount->fullAddress;
-    account.age = newAccount->age;
-    account.nationalID = newAccount->nationalID;
-    if(account.age <= 21 ){ account.guardianNationalID = newAccount->guardianNationalID;}
-    account.balance = newAccount->balance;
-    account.status ="Active";
-    account.Next =NULL;
-    printf("Account Added ");
+    Account* ptrAccount= (Account*) malloc(sizeof(Account));
+    
+    //account_init(ptrAccount) ;
+    ptrAccount->fullName = newAccount->fullName;
+    ptrAccount->fullAddress = newAccount->fullAddress;
+    ptrAccount->age = newAccount->age;
+    ptrAccount->nationalID = newAccount->nationalID;
+    if(newAccount->age <= 21 ){ ptrAccount->guardianNationalID = newAccount->guardianNationalID;}
+    ptrAccount->balance = newAccount->balance;
+    ptrAccount->status ="Active";
+    ptrAccount->Next =NULL;
+
+    if(AccountsList->head ==NULL){AccountsList->head = ptrAccount;}
+    else {AccountsList->head->Next = ptrAccount;}
+    AccountsList->size++;
+    printf("Added Account Successfully!");
 }
 
 
-Account* admin_OpenExstingAccount(AccountLinkedList* account){}
+extern Account* admin_OpenExstingAccount(AccountLinkedList* account){}
 
 
 
 
-void admin_Logout() {}
-void admin_EditProfile() {}
-void admin_MakeTranaction() {}
+//void admin_Logout() {}
+extern void admin_EditProfile() {}
+extern void admin_MakeTranaction() {}
 
-void admin_ChangeAccountStatus() {}
-void admin_GetCash() {}
-void admin_DepositInAccount() {}
-void admin_ReturnToMainMenu() {}
+extern void admin_ChangeAccountStatus() {}
+extern void admin_GetCash() {}
+extern void admin_DepositInAccount() {}
+extern void admin_ReturnToMainMenu() {}

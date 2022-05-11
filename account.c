@@ -2,48 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "account.h"
 
-typedef struct account
+
+
+extern void account_init(Account* account)
 {
-    char* fullName;
-    char *fullAddress;
-    int nationalID;
-    int age;
-    char *accountID;
-    char* guardian;
-    int guardianNationalID;
-    char *status;
-    char *balance;
-    char *password;
-    struct account* Next;
-} Account;
-
-//comment
-typedef struct accountLinkedList
-{
-   Account* head;
-   int size;
-} AccountLinkedList;
-
-
-
-Account account_init();
-char* generate_AccountID(int id_length);
-char* generate_Password(int password_length);
-
-
-
-Account account_init()
-{
-  //Account* newAccount = (Account*) malloc(sizeof(Account));
-  Account newAccount;
-  newAccount.fullName =" ";
-  newAccount.password = generate_Password(8);
-  newAccount.accountID = generate_AccountID(10); 
-  return newAccount;
+  account->password = generate_Password(8);
+  account->accountID = generate_AccountID(10); 
+  
 }
 
-char* generate_Password(int password_length)
+extern void accountLinkedList_init(AccountLinkedList* accountsList)
+{
+  accountsList->head = NULL;
+  accountsList->size =0; 
+}
+
+extern char* generate_Password(int password_length)
 {   int i;
     char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/";
     srand(time(NULL));
@@ -54,7 +30,7 @@ char* generate_Password(int password_length)
 }
 
 
-char* generate_AccountID(int id_length)
+extern char* generate_AccountID(int id_length)
 {
     char list[] = "1234567890";
     int i;
