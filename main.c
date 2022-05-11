@@ -1,21 +1,33 @@
 #include <stdio.h>
-//#include "admin.c"
+#include "admin.c"
+#include "admin.h"
 #include <stdlib.h>
 #include <string.h>
+#include "account.h"
 #include "account.c"
 
-  
-// main function -
-// where the execution of program begins
+
+//void account_init(Account* account);
+
 int main()
 {
    
-  Account acc = account_init() ;
+ 
+  Account accountPtr;
+  Account* account = &accountPtr ;
+  account_init(account);
+  account->fullName ="acc name";
+  account->age = 25;
+  printf("here");
+  //--------------------------
+  AccountLinkedList accListPtr ;
+  AccountLinkedList* accountsList = &accListPtr;
+  accountLinkedList_init(accountsList);
+  printf("here");
+  admin_CreateAccount(account,accountsList);
 
   printf("here");
-  //acc->fullName ="user";
-  //acc->age =25;
-  //admin_CreateAccount(acc);
+  
   
     return 0;
 }
